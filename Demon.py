@@ -31,7 +31,7 @@ class Demon(object):
     KDD 2012:615-623
     """
 
-    def __init__(self, network_filename, epsilon=0.25, min_community_size=3, file_output=True):
+    def __init__(self, network_filename, epsilon=0.25, min_community_size=3, file_output=False):
         """
         Constructor
 
@@ -121,7 +121,7 @@ class Demon(object):
                 old_p = percentage
             actual += 1
 
-        if self.file_output:
+        if self.file_output is not False:
             out_file_com = open("%s.txt" % self.file_output, "w")
             idc = 0
             for c in all_communities.keys():
