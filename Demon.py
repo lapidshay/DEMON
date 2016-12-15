@@ -122,7 +122,7 @@ class Demon(object):
             actual += 1
 
         if self.file_output is not False:
-            out_file_com = open("%s.txt" % self.file_output, "w")
+            out_file_com = open("communities.txt", "w")
             idc = 0
             for c in all_communities.keys():
                 out_file_com.write("%d\t%s\n" % (idc, str(sorted(c))))
@@ -299,7 +299,7 @@ if __name__ == "__main__":
     parser.add_argument('network_file', type=str, help='network file (edge list format)')
     parser.add_argument('epsilon', type=float, help='merging threshold')
     parser.add_argument('-c', '--min_com_size', type=int, help='minimum community size', default=3)
-    parser.add_argument('-o', '--out_file', type=str, help='output file', default="demon_coms.txt")
+    parser.add_argument('-o', '--out_file', type=boolean, help='whether to write the communitie on file', default=True)
 
     args = parser.parse_args()
     dm = Demon(args.network_file, epsilon=args.epsilon,
