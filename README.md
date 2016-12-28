@@ -7,11 +7,11 @@ Community discovery in complex networks is an interesting problem with a number 
 If you use our algorithm please cite the following works:
 
 >Coscia, Michele; Rossetti, Giulio; Giannotti, Fosca; Pedreschi, Dino
->Uncovering Hierarchical and Overlapping Communities with a Local-First Approach 
->ACM Transactions on Knowledge Discovery from Data (TKDD), 9 (1), 2014.
+> ["Uncovering Hierarchical and Overlapping Communities with a Local-First Approach"](http://dl.acm.org/citation.cfm?id=2629511)
+>ACM Transactions on Knowledge Discovery from Data (TKDD), 9 (1), 2014. 
 
 >Coscia, Michele; Rossetti, Giulio; Giannotti, Fosca; Pedreschi, Dino
->DEMON: a Local-First Discovery Method for Overlapping Communities
+> ["DEMON: a Local-First Discovery Method for Overlapping Communities"](http://dl.acm.org/citation.cfm?id=2339630)
 >SIGKDD international conference on knowledge discovery and data mining, pp. 615-623, IEEE ACM, 2012, ISBN: 978-1-4503-1462-6.
 
 ## Implementation details
