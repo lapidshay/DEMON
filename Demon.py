@@ -144,7 +144,7 @@ class Demon(object):
 
         old_node_to_coms = {}
 
-        while t < max_iteration:
+        while t <= max_iteration:
             t += 1
 
             node_to_coms = {}
@@ -180,7 +180,7 @@ class Demon(object):
                         else:
                             label_freq[nn_c] = 1
 
-                # first run, random choosing of the communities among the neighbors labels
+                # first run, random community label initialization
                 if t == 1:
                     if not len(n_neighbors) == 0:
                         r_label = random.sample(label_freq.keys(), 1)
@@ -206,8 +206,6 @@ class Demon(object):
                     if n not in old_node_to_coms or not set(node_to_coms[n]) == set(old_node_to_coms[n]):
                         old_node_to_coms[n] = node_to_coms[n]
                         ego_minus_ego.node[n]['communities'] = labels
-
-            t += 1
 
         # build the communities reintroducing the ego
         community_to_nodes = {}
@@ -242,13 +240,13 @@ class Demon(object):
         else:
             # search a community to merge with
             inserted = False
-            # print len(communities)
 
             for test_community in communities.items():
 
                 union = self.__generalized_inclusion(actual_community, test_community[0])
 
-                # community to merge with found!
+                # community to merge with identified!
+                # N.B. one-to-one merge with no predefined visit ordering: non-deterministic behaviours expected
                 if union is not None:
                     communities.pop(test_community[0])
                     communities[tuple(sorted(union))] = 0
