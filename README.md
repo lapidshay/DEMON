@@ -50,6 +50,6 @@ The explicit removal version does not expose the ttl parameter.
 ## As python library
 ```bash
 import Demon as d
-dm = d.DEMON("filename.tsc", epsilon=0.25, min_com_size=3, out_filename="communities.txt")
+dm = d.Demon("filename.tsc", epsilon=0.25, min_com_size=3, out_filename="communities.txt")
 dm.execute()
 ```
