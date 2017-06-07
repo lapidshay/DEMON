@@ -42,7 +42,7 @@ python Demon.py filename epsilon -c min_com_size -o out_filename
 where:
 * filename: edgelist filename
 * epsilon: merging threshold in [0,1]
-* min_com_size: minimum size for communities (default 3 - optional)
+* min_community_size: minimum size for communities (default 3 - optional)
 * out_filename: desired filename for the output (optional)
 
 The explicit removal version does not expose the ttl parameter.
@@ -50,6 +50,6 @@ The explicit removal version does not expose the ttl parameter.
 ## As python library
 ```bash
 import Demon as d
-dm = d.Demon("filename.tsc", epsilon=0.25, min_com_size=3, out_filename="communities.txt")
+dm = d.Demon("filename.tsc", epsilon=0.25, min_community_size=3, out_filename="communities.txt")
 dm.execute()
 ```
