@@ -26,9 +26,7 @@ node_id0    node_id1
 Demon is written in python and requires the following package to run:
 - python 2.7.10
 - networkx
-- random
-- time
-- sys
+- tqdm
 
 The algorithm can be used as standalone program as well as integrated in python scripts.
 
@@ -48,7 +46,7 @@ where:
 The explicit removal version does not expose the ttl parameter.
 
 ## As python library
-```bash
+```python
 import Demon as d
 dm = d.Demon("filename.tsc", epsilon=0.25, min_community_size=3, out_filename="communities.txt")
 dm.execute()
