@@ -6,7 +6,7 @@ import tqdm
 
 __author__ = "Giulio Rossetti"
 __contact__ = "giulio.rossetti@isti.cnr.it"
-__license__ = "BSD"
+__license__ = "BSD 2 Clause"
 
 
 def timeit(method):
