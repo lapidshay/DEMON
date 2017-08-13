@@ -280,7 +280,8 @@ class Demon(object):
             return union
         return None
 
-if __name__ == "__main__":
+
+def main():
     import argparse
 
     print "-------------------------------------"
@@ -297,10 +298,9 @@ if __name__ == "__main__":
     parser.add_argument('network_file', type=str, help='network file (edge list format)')
     parser.add_argument('epsilon', type=float, help='merging threshold')
     parser.add_argument('-c', '--min_com_size', type=int, help='minimum community size', default=3)
-    parser.add_argument('-o', '--out_file', type=bool, help='whether to write the communitie on file', default=True)
 
     args = parser.parse_args()
     dm = Demon(args.network_file, epsilon=args.epsilon,
-               min_community_size=args.min_com_size, file_output=args.out_file)
+               min_community_size=args.min_com_size, file_output=True)
     dm.execute()
 
