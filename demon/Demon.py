@@ -2,6 +2,7 @@ import networkx as nx
 import random
 import time
 import sys
+import tqdm
 
 __author__ = "Giulio Rossetti"
 __contact__ = "giulio.rossetti@isti.cnr.it"
@@ -9,14 +10,20 @@ __license__ = "BSD"
 
 
 def timeit(method):
+    """
+    Decorator: Compute the execution time of a function
+    :param method: the function
+    :return: the method runtime
+    """
 
-    def timed(*argst, **kwt):
+    def timed(*arguments, **kw):
         ts = time.time()
-        result = method(*argst, **kwt)
+        result = method(*arguments, **kw)
         te = time.time()
 
-        print '%r (%r, %r) %2.2f sec' % \
-              (method.__name__, argst, kwt, te-ts)
+        sys.stdout.write('Time:  %r %2.2f sec\n' % (method.__name__.strip("_"), te - ts))
+        sys.stdout.write('------------------------------------\n')
+        sys.stdout.flush()
         return result
 
     return timed
@@ -49,35 +56,13 @@ class Demon(object):
 
     @timeit
     def __read_graph(self, network_filename):
+        """
+        Read .ncol network file
 
-        sys.stdout.write('[Graph Loading]\n')
-        sys.stdout.flush()
-        old_p = 0
-        actual = 1
-        bar_length = 20
-        num_lines = sum([1 for i in open(network_filename)])
-
-        f = open(network_filename)
-
-        for l in f:
-            try:
-                l = map(int, l.rstrip().replace("\t", ",").replace(" ", ",").split(",")[:2])
-                self.g.add_edge(l[0], l[1])
-            except ValueError:
-                pass
-
-            percentage = int((float(actual) / num_lines) * 100)
-            if percentage > old_p:
-                hashes = '#' * int(round(percentage/5))
-                spaces = ' ' * (bar_length - len(hashes))
-                sys.stdout.write("\rExec: [{0}] {1}%".format(hashes + spaces, int(round(percentage))))
-                sys.stdout.flush()
-                old_p = percentage
-
-            actual += 1
-
-        sys.stdout.write("\nStat: Nodes %d Edges %d" % (self.g.number_of_nodes(), self.g.number_of_edges()))
-        sys.stdout.flush()
+        :param network_filename: complete path for the .ncol file
+        :return: an undirected network
+        """
+        self.g = nx.read_edgelist(network_filename, nodetype=int)
 
     @timeit
     def execute(self):
@@ -86,21 +71,12 @@ class Demon(object):
 
         """
 
-        sys.stdout.write('\n[Community Extraction]\n')
-        sys.stdout.flush()
-
         for n in self.g.nodes():
             self.g.node[n]['communities'] = [n]
 
         all_communities = {}
 
-        total_nodes = len(nx.nodes(self.g))
-        old_p = 0
-        actual = 1
-
-        bar_length = 20
-
-        for ego in nx.nodes(self.g):
+        for ego in tqdm.tqdm(nx.nodes(self.g), ncols=35, bar_format='Exec: {l_bar}{bar}'):
 
             ego_minus_ego = nx.ego_graph(self.g, ego, 1, False)
             community_to_nodes = self.__overlapping_label_propagation(ego_minus_ego, ego)
@@ -110,16 +86,6 @@ class Demon(object):
                 if len(community_to_nodes[c]) > self.min_community_size:
                     actual_community = community_to_nodes[c]
                     all_communities = self.__merge_communities(all_communities, actual_community)
-
-            # progress bar update
-            percentage = int(float(actual * 100) / total_nodes)
-            if percentage > old_p:
-                hashes = '#' * int(round(percentage/5))
-                spaces = ' ' * (bar_length - len(hashes))
-                sys.stdout.write("\rExec: [{0}] {1}%".format(hashes + spaces, int(round(percentage))))
-                sys.stdout.flush()
-                old_p = percentage
-            actual += 1
 
         if self.file_output is not False:
             out_file_com = open("communities.txt", "w")
@@ -284,14 +250,14 @@ class Demon(object):
 def main():
     import argparse
 
-    print "-------------------------------------"
-    print "              {DEMON}                "
-    print "     Democratic Estimate of the      "
-    print "  Modular Organization of a Network  "
-    print "-------------------------------------"
-    print "Author: ", __author__
-    print "Email:  ", __contact__
-    print "------------------------------------\n"
+    sys.stdout.write("-------------------------------------\n")
+    sys.stdout.write("              {DEMON}                \n")
+    sys.stdout.write("     Democratic Estimate of the      \n")
+    sys.stdout.write("  Modular Organization of a Network  \n")
+    sys.stdout.write("-------------------------------------\n")
+    sys.stdout.write("Author: " + __author__ + "\n")
+    sys.stdout.write("Email:  " + __contact__ + "\n")
+    sys.stdout.write("------------------------------------\n")
 
     parser = argparse.ArgumentParser()
 
