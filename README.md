@@ -34,20 +34,20 @@ The algorithm can be used as standalone program as well as integrated in python 
 
 ```bash
 
-python Demon.py filename epsilon -c min_com_size -o out_filename 
+python demon filename epsilon -c min_com_size
 ```
 
 where:
 * filename: edgelist filename
 * epsilon: merging threshold in [0,1]
 * min_community_size: minimum size for communities (default 3 - optional)
-* out_filename: desired filename for the output (optional)
+* file_output: True if the results should be written in a file, False otherwise
 
 The explicit removal version does not expose the ttl parameter.
 
 ## As python library
 ```python
-import Demon as d
-dm = d.Demon("filename.tsc", epsilon=0.25, min_community_size=3, out_filename="communities.txt")
+import demon as d
+dm = d.Demon("filename.tsc", epsilon=0.25, min_community_size=3, file_output=True)
 dm.execute()
 ```
