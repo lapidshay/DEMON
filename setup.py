@@ -12,7 +12,7 @@ setup(name='demon',
       version='2.0.0',
       license='BSD-2-Clause',
       description='Community Discovery algorithm',
-      url='https://github.com/GiulioRossetti/dynetx',
+      url='https://github.com/GiulioRossetti/DEMON',
       author='Giulio Rossetti',
       author_email='giulio.rossetti@gmail.com',
       use_2to3=True,
@@ -28,7 +28,7 @@ setup(name='demon',
           'Topic :: Software Development :: Build Tools',
 
           # Pick your license as you wish (should match "license" above)
-          'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+          'License :: OSI Approved :: BSD-2-Clause',
 
           "Operating System :: OS Independent",
 
@@ -38,7 +38,7 @@ setup(name='demon',
           'Programming Language :: Python :: 2.7',
           #'Programming Language :: Python :: 3'
       ],
-      keywords='dynamic-networks',
+      keywords=['complex-networks', 'community discovery'],
       install_requires=['networkx',  'future', ''],
       packages=find_packages(exclude=["*.test", "*.test.*", "test.*", "test", "demon.test", "demon.test.*"]),
       )
