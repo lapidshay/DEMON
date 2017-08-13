@@ -10,7 +10,7 @@ __email__ = "giulio.rossetti@gmail.com"
 
 setup(name='demon',
       version='2.0.0',
-      license='GNU General Public License v3 or later (GPLv3+)',
+      license='BSD-2-Clause',
       description='Community Discovery algorithm',
       url='https://github.com/GiulioRossetti/dynetx',
       author='Giulio Rossetti',
