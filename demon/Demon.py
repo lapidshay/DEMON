@@ -129,9 +129,6 @@ class Demon(object):
                 if len(n_neighbors) < 1:
                     continue
 
-                if count == 0:
-                    t += 1
-
                 # compute the frequency of the labels
                 for nn in n_neighbors:
 

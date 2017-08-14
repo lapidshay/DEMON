@@ -3,3 +3,7 @@ omit =
  setup.py
  demon/__main__.py
  demon/test/*
+
+[report]
+exclude_lines =
+    def main()
