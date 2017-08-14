@@ -63,6 +63,7 @@ class Demon(object):
         :return: an undirected network
         """
         self.g = nx.read_edgelist(network_filename, nodetype=int)
+        print self.g.number_of_edges()
 
     @timeit
     def execute(self):
@@ -88,7 +89,7 @@ class Demon(object):
                     all_communities = self.__merge_communities(all_communities, actual_community)
 
         if self.file_output is not False:
-            out_file_com = open("communities.txt", "w")
+            out_file_com = open("demon_%s_communities.txt" % self.epsilon, "w")
             idc = 0
             for c in all_communities.keys():
                 out_file_com.write("%d\t%s\n" % (idc, str(sorted(c))))
