@@ -1,1 +1,1 @@
-from Demon import Demon
+from demon.alg.Demon import Demon

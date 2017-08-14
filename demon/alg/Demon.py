@@ -63,7 +63,6 @@ class Demon(object):
         :return: an undirected network
         """
         self.g = nx.read_edgelist(network_filename, nodetype=int)
-        print self.g.number_of_edges()
 
     @timeit
     def execute(self):

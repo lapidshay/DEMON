@@ -1,4 +1,4 @@
-from Demon import main
+from demon.alg.Demon import main
 
 main()
 

@@ -27,7 +27,5 @@ class DemonTestCase(unittest.TestCase):
         os.remove("test.csv")
         os.remove("demon_0.3_communities.txt")
 
-
-
 if __name__ == '__main__':
     unittest.main()
