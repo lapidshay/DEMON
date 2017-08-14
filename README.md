@@ -5,8 +5,8 @@
 
 [![Build Status](https://travis-ci.org/GiulioRossetti/DEMON.svg?branch=master)](https://travis-ci.org/GiulioRossetti/DEMON)
 [![Coverage Status](https://coveralls.io/repos/github/GiulioRossetti/DEMON/badge.svg?branch=master)](https://coveralls.io/github/GiulioRossetti/DEMON?branch=master)
-[![pyversions](https://img.shields.io/pypi/pyversions/DEMON.svg)](https://badge.fury.io/py/DEMON)
-[![PyPI version](https://badge.fury.io/py/DEMON.svg)](https://badge.fury.io/py/DEMON)
+[![pyversions](https://img.shields.io/pypi/pyversions/demon.svg)](https://badge.fury.io/py/DEMON)
+[![PyPI version](https://badge.fury.io/py/demon.svg)](https://badge.fury.io/py/DEMON)
 [![BCH compliance](https://bettercodehub.com/edge/badge/GiulioRossetti/DEMON?branch=master)](https://bettercodehub.com/)
 
 
