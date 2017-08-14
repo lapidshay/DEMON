@@ -28,7 +28,7 @@ setup(name='demon',
           'Topic :: Software Development :: Build Tools',
 
           # Pick your license as you wish (should match "license" above)
-          'License :: OSI Approved :: BSD-2-Clause',
+          'License :: OSI Approved :: BSD License',
 
           "Operating System :: OS Independent",
 

@@ -5,6 +5,9 @@
 
 [![Build Status](https://travis-ci.org/GiulioRossetti/DEMON.svg?branch=master)](https://travis-ci.org/GiulioRossetti/DEMON)
 [![Coverage Status](https://coveralls.io/repos/github/GiulioRossetti/DEMON/badge.svg?branch=master)](https://coveralls.io/github/GiulioRossetti/DEMON?branch=master)
+[![pyversions](https://img.shields.io/pypi/pyversions/DEMON.svg)](https://badge.fury.io/py/DEMON)
+[![PyPI version](https://badge.fury.io/py/DEMON.svg)](https://badge.fury.io/py/DEMON)
+[![BCH compliance](https://bettercodehub.com/edge/badge/GiulioRossetti/DEMON?branch=master)](https://bettercodehub.com/)
 
 
 Community discovery in complex networks is an interesting problem with a number of applications, especially in the knowledge extraction task in social and information networks. However, many large networks often lack a particular community organization at a global level. In these cases, traditional graph partitioning algorithms fail to let the latent knowledge embedded in modular structure emerge, because they impose a top-down global view of a network. We propose here a simple local-first approach to community discovery, able to unveil the modular organization of real complex networks. This is achieved by democratically letting each node vote for the communities it sees surrounding it in its limited view of the global system, i.e. its ego neighborhood, using a label propagation algorithm; finally, the local communities are merged into a global collection. 
@@ -19,6 +22,16 @@ If you use our algorithm please cite the following works:
 >Coscia, Michele; Rossetti, Giulio; Giannotti, Fosca; Pedreschi, Dino
 > ["DEMON: a Local-First Discovery Method for Overlapping Communities"](http://dl.acm.org/citation.cfm?id=2339630)
 >SIGKDD international conference on knowledge discovery and data mining, pp. 615-623, IEEE ACM, 2012, ISBN: 978-1-4503-1462-6.
+
+## Installation
+
+
+In order to install the package just download (or clone) the current project and copy the demon folder in the root of your application.
+
+Alternatively use pip:
+```bash
+sudo pip install demon
+```
 
 ## Implementation details
 
