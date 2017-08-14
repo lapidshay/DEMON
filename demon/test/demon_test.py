@@ -27,19 +27,6 @@ class DemonTestCase(unittest.TestCase):
         os.remove("test.csv")
         os.remove("demon_0.3_communities.txt")
 
-    def test_script(self):
-        g = nx.karate_club_graph()
-        nx.write_edgelist(g, "test2.csv", delimiter=" ")
-
-        os.system("python ../../demon test2.csv 0.25")
-        f = open("demon_0.25_communities.txt")
-        count = 0
-        for _ in f:
-            count += 1
-        self.assertEqual(count, 2)
-
-        os.remove("test2.csv")
-        os.remove("demon_0.25_communities.txt")
 
 
 if __name__ == '__main__':
