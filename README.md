@@ -43,7 +43,6 @@ node_id0    node_id1
 
 # Execution
 Demon is written in python and requires the following package to run:
-- python 2.7.10
 - networkx
 - tqdm
 
@@ -61,8 +60,6 @@ where:
 * epsilon: merging threshold in [0,1]
 * min_community_size: minimum size for communities (default 3 - optional)
 * file_output: True if the results should be written in a file, False otherwise
-
-The explicit removal version does not expose the ttl parameter.
 
 ## As python library
 ```python
