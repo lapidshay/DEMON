@@ -3,6 +3,7 @@ import random
 import time
 import sys
 import tqdm
+import os
 
 __author__ = "Giulio Rossetti"
 __contact__ = "giulio.rossetti@isti.cnr.it"
@@ -53,6 +54,7 @@ class Demon(object):
         self.epsilon = epsilon
         self.min_community_size = min_community_size
         self.file_output = file_output
+        self.base = os.getcwd()
 
     @timeit
     def __read_graph(self, network_filename):
@@ -88,7 +90,7 @@ class Demon(object):
                     all_communities = self.__merge_communities(all_communities, actual_community)
 
         if self.file_output is not False:
-            out_file_com = open("demon_%s_communities.txt" % self.epsilon, "w")
+            out_file_com = open("%s/demon_%s_communities.txt" % (self.base, self.epsilon), "w")
             idc = 0
             for c in all_communities.keys():
                 out_file_com.write("%d\t%s\n" % (idc, str(sorted(c))))
