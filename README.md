@@ -1,4 +1,4 @@
-# DEMON - A local-first discovery method for overlapping communities.
+# DEMON - Overlapping Community Discovery.
 
 [![Build Status](https://travis-ci.org/GiulioRossetti/DEMON.svg?branch=master)](https://travis-ci.org/GiulioRossetti/DEMON)
 [![Coverage Status](https://coveralls.io/repos/github/GiulioRossetti/DEMON/badge.svg?branch=master)](https://coveralls.io/github/GiulioRossetti/DEMON?branch=master)
