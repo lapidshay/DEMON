@@ -94,16 +94,13 @@ class Demon(object):
                     actual_community = community_to_nodes[c]
                     all_communities = self.__merge_communities(all_communities, actual_community)
 
-        if self.file_output is None:
-            return list(all_communities.keys())
-        else:
-            out_file_com = open("%s" % self.file_output, "w")
-            idc = 0
-            for c in all_communities.keys():
-                out_file_com.write("%d\t%s\n" % (idc, str(sorted(c))))
-                idc += 1
-            out_file_com.flush()
-            out_file_com.close()
+        # write output on file
+        if self.file_output:
+            with open(self.file_output, "w") as out_file_com:
+                for idc, c in enumerate(all_communities.keys()):
+                    out_file_com.write("%d\t%s\n" % (idc, str(sorted(c))))
+
+        return list(all_communities.keys())
 
     @staticmethod
     def __overlapping_label_propagation(ego_minus_ego, ego, max_iteration=10):
@@ -273,4 +270,3 @@ def main():
     dm = Demon(g=None, network_filename=args.network_file, epsilon=args.epsilon,
                min_community_size=args.min_com_size, file_output="demon_communities.tsv")
     dm.execute()
-
