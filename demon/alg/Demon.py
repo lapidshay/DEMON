@@ -270,3 +270,4 @@ def main():
     dm = Demon(g=None, network_filename=args.network_file, epsilon=args.epsilon,
                min_community_size=args.min_com_size, file_output="demon_communities.tsv")
     dm.execute()
+
